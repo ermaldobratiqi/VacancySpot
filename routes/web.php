@@ -17,14 +17,6 @@ use App\Http\Controllers\ListingController;
 |
 */
 
-//Common Resource Routes
-//index - Show all listings
-//create - Show form to create new listing
-//store - Store new listing
-//eidt - Show form to edit listing
-//update - Update listing
-//destroy - Delete listing
-
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
@@ -45,6 +37,9 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->mid
 
 //Manage Listings
 Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
+//Admin Dashboard
+Route::get('/admin', [ListingController::class, 'adminDashboard'])->middleware('auth');
 
 // Single Listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
